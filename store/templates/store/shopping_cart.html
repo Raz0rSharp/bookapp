@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class='col-sm-8 col-sm-offset-2'>
+<table class='table'>
+<thead>
+  <th>Item</th>
+  <th>Price</th>
+</thead>
+<tfoot>
+<tr>
+<td></td>
+<td>Total: {{ cart.total|floatformat:2 }}</td>
+</tr>
+</tfoot>
+{% for item in cart.posts.all %}
+
+<tr><td>{{ item }}</td><td>{{ item.price|floatformat:2 }}</td><td><a href="cart/{{ item.pk }}/">Remove</a></td></tr>
+
+{% endfor %}
+</table>
+<a class="btn btn-danger my-2 my-lg-0">PURCHASE</a>
+</div>
+{% endblock %}

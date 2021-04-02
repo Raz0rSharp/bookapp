@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<div class="post">
+    <div class="row">
+      <div class="col-sm" >
+        <img src="{{ post.photo.url }}" height="400vh" width="auto"/>
+      </div>
+	<div class="col-sm">
+    <h1>{{ post.title }}</h1>
+    <h4>by {{ post.author }}</h4>
+    <h4>Published {{ post.publication_date}}</h4>
+    <h2>${{ post.price|floatformat:2 }}</h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+    <i>Category: {{ post.book_category }}</i><br/><br/>
+    <a class="btn btn-danger my-2 my-lg-0" id="book" href='{% url "update_cart" post.pk %}'>ADD TO CART</a>
+	</div>
+
+    </div>
+</div>
+
+    <!--<div class="post">
+        <h1>{{ post.title }}</h1>
+        <h4>by {{ post.author }}</h4>
+        <h4>Published {{ post.publication_date}}</h4>
+        <h2>${{ post.price }}</h2>
+        <img src="{{ post.photo.url }}" height="400vh" width="auto"/>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <i>Category: {{ post.book_category }}</i><br/><br/>
+        <a class="btn btn-danger my-2 my-lg-0" id="book">ADD TO CART</a>
+    </div>-->
+{% endblock %}
